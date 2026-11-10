@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="description" content="Belleville Bakery — French artisan bakery at 217 College Street, Burlington, VT. Open Thursday to Sunday, 9am to 2pm. Pain au chocolat, cookies, cakes, quiche and preorders by email." />
+<link rel="icon" href="data:," />
+<title>Belleville Bakery — Burlington, VT | French Artisan Bakery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+<style>
+  :root{
+    --bg:#faf6ec; --bg-raise:#fffdf7; --bg-sink:#f0e8d5;
+    --ink:#242a20; --ink-soft:#5f6a56; --line:#e0d7bf;
+    --butter:#e8b93d; --butter-deep:#b8860b; --green:#2e4d2f;
+    --dark:#242a20; --dark-ink:#faf6ec; --dark-soft:#cfd6c6;
+    --radius:16px; --font-body:'Archivo',system-ui,sans-serif; --font-display:'Fraunces',Georgia,serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:var(--font-body);background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  ::selection{background:var(--butter);color:#242a20}
+  .wrap{width:min(1160px,100% - 40px);margin-inline:auto}
+  h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.02;margin:0;letter-spacing:-.01em}
+  .kicker{font-size:.78rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--green)}
+  section{padding:84px 0}
+  .btn{display:inline-flex;align-items:center;gap:10px;font-weight:800;font-size:.95rem;text-decoration:none;padding:15px 26px;border-radius:999px;border:2px solid transparent;transition:transform .15s ease,background .15s ease;cursor:pointer}
+  .btn-butter{background:var(--butter);color:#242a20}
+  .btn-butter:hover{background:var(--butter-deep);color:#fff;transform:translateY(-2px)}
+  .btn-ghost{border-color:var(--ink);background:transparent}
+  .btn-ghost:hover{transform:translateY(-2px)}
+  header{position:sticky;top:0;z-index:60;background:rgba(250,246,236,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+  .brand{font-family:var(--font-display);font-size:1.7rem;font-weight:700;text-decoration:none;line-height:1}
+  .brand small{display:block;font-family:var(--font-body);font-size:.62rem;font-weight:700;letter-spacing:.22em;color:var(--ink-soft);margin-top:3px}
+  .nav-links{display:flex;gap:28px;align-items:center}
+  .nav-links a{text-decoration:none;font-weight:700;font-size:.92rem}
+  .nav-links a:hover{color:var(--green)}
+  .nav-cta{padding:11px 20px;font-size:.88rem}
+  .burger{display:none;background:none;border:0;font-size:1.35rem;color:var(--ink);cursor:pointer;padding:6px}
+  @media (max-width:820px){
+    .nav-links{position:absolute;top:100%;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;padding:18px 20px 22px;gap:16px;display:none}
+    .nav-links.open{display:flex}
+    .burger{display:block}
+    header .wrap{position:relative}
+  }
+  .hero{padding:0;background:var(--dark);color:var(--dark-ink);overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;min-height:640px}
+  @media (max-width:900px){.hero-grid{grid-template-columns:1fr;min-height:0}}
+  .hero-copy{padding:76px 0 64px}
+  .hero-copy .kicker{color:var(--butter)}
+  .hero h1{font-size:clamp(3rem,7.5vw,5.4rem);margin:18px 0 16px}
+  .hero h1 em{font-style:italic;color:var(--butter)}
+  .hero-sub{max-width:520px;font-size:1.13rem;color:#e6e2d2}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin:30px 0 34px}
+  .btn-outline-w{border-color:rgba(255,255,255,.7);color:#fff;background:transparent}
+  .btn-outline-w:hover{border-color:var(--butter);color:var(--butter)}
+  .hero-meta{display:flex;gap:22px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.22);padding-top:22px;font-size:.95rem}
+  .hero-meta div b{display:block;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--butter)}
+  .hero-photo{position:relative;min-height:420px}
+  .hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(36,42,32,.55),transparent 55%)}
+  .open-pill{position:absolute;z-index:2;left:20px;bottom:20px;background:var(--bg-raise);color:var(--ink);border-radius:999px;padding:10px 16px;font-weight:800;font-size:.9rem;display:flex;gap:8px;align-items:center;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+  .open-pill .dot{width:9px;height:9px;border-radius:50%;background:#2e7d32}
+  .open-pill.closed .dot{background:#b3261e}
+  .strip{background:var(--butter);color:#242a20;overflow:hidden;padding:13px 0;border-block:3px solid #242a20}
+  .strip-track{display:flex;width:max-content;animation:scrollx 28s linear infinite}
+  .strip span{font-family:var(--font-display);font-weight:700;font-size:1.15rem;white-space:nowrap;padding-right:16px}
+  @keyframes scrollx{to{transform:translateX(-50%)}}
+  @media (prefers-reduced-motion: reduce){.strip-track{animation:none}}
+  .sec-head{max-width:720px;margin-bottom:44px}
+  .sec-head h2{font-size:clamp(2.1rem,5vw,3.3rem);margin:12px 0 14px}
+  .sec-head p{color:var(--ink-soft);font-size:1.05rem;margin:0}
+  .bake-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media (max-width:900px){.bake-grid{grid-template-columns:1fr 1fr}}
+  @media (max-width:560px){.bake-grid{grid-template-columns:1fr}}
+  .bake{background:var(--bg-raise);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+  .bake img{aspect-ratio:4/3;object-fit:cover;width:100%}
+  .bake-body{padding:22px}
+  .bake-body h3{font-size:1.4rem;margin-bottom:6px}
+  .bake-body p{margin:0;color:var(--ink-soft);font-size:.96rem}
+  .bake-tag{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:8px}
+  .bake-note{margin-top:28px;background:var(--bg-sink);border:1px solid var(--line);border-radius:var(--radius);padding:18px 22px;font-size:.95rem;color:var(--ink-soft)}
+  .bake-note b{color:var(--ink)}
+  .visit-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:start}
+  @media (max-width:900px){.visit-grid{grid-template-columns:1fr}}
+  .hours{border:2px solid var(--ink);border-radius:18px;overflow:hidden;background:var(--bg-raise)}
+  .hours-head{background:var(--ink);color:var(--bg);padding:18px 24px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+  .hours-head b{font-family:var(--font-display);font-size:1.25rem;font-weight:700}
+  .hours-head span{background:var(--butter);color:#242a20;font-weight:800;border-radius:999px;padding:5px 14px;font-size:.9rem}
+  .hours-row{display:flex;justify-content:space-between;gap:12px;padding:16px 24px;border-top:1px solid var(--line)}
+  .hours-row:first-of-type{border-top:0}
+  .hours-row.today{background:#fdf3d7;font-weight:800}
+  .hours-row .day{font-weight:700}
+  .hours-row .time{font-family:var(--font-display);font-size:1.15rem}
+  .hours-foot{padding:16px 24px;background:var(--bg-sink);font-size:.92rem;color:var(--ink-soft)}
+  .visit-photo{border-radius:18px;overflow:hidden}
+  .visit-photo img{aspect-ratio:4/3;object-fit:cover;width:100%}
+  .visit-list{list-style:none;margin:24px 0 0;padding:0;display:grid;gap:12px}
+  .visit-list li{display:flex;gap:12px;align-items:flex-start;font-size:1rem}
+  .visit-list i{color:var(--green);margin-top:4px}
+  .story{background:var(--bg-sink)}
+  .story-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:48px;align-items:center}
+  @media (max-width:900px){.story-grid{grid-template-columns:1fr}}
+  .story-photo{border-radius:18px;overflow:hidden}
+  .story-photo img{aspect-ratio:4/3.4;object-fit:cover;width:100%}
+  .story-copy h2{font-size:clamp(2.1rem,5vw,3.2rem);margin:12px 0 16px}
+  .story-copy p{color:var(--ink-soft);margin:0 0 14px}
+  .story-copy p strong{color:var(--ink)}
+  .ig-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  @media (max-width:700px){.ig-grid{grid-template-columns:1fr}}
+  .ig-card{background:var(--bg-raise);border:1px solid var(--line);border-radius:var(--radius);padding:28px;text-decoration:none;display:block}
+  .ig-card:hover{border-color:var(--ink)}
+  .ig-card i{font-size:1.7rem;color:var(--green)}
+  .ig-card h3{font-size:1.5rem;margin:12px 0 6px}
+  .ig-card p{margin:0;color:var(--ink-soft)}
+  .ig-card span{display:inline-block;margin-top:14px;font-weight:800;font-size:.9rem}
+  .faq-list{max-width:820px}
+  .faq-item{border-bottom:1px solid var(--line)}
+  .faq-item:first-child{border-top:2px solid var(--ink)}
+  .faq-q{width:100%;background:none;border:0;text-align:left;padding:22px 4px;font-family:var(--font-body);font-size:1.08rem;font-weight:800;color:var(--ink);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px}
+  .faq-q i{transition:transform .18s ease;color:var(--green)}
+  .faq-item.open .faq-q i{transform:rotate(45deg)}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .25s ease}
+  .faq-a p{margin:0;padding:0 4px 22px;color:var(--ink-soft);max-width:680px}
+  .cta{background:var(--dark);color:var(--dark-ink)}
+  .cta h2{font-size:clamp(2.4rem,6vw,4.2rem);margin-bottom:16px}
+  .cta h2 em{font-style:italic;color:var(--butter)}
+  .cta p{color:var(--dark-soft);max-width:560px;font-size:1.08rem}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+  footer{padding:34px 0 40px;border-top:1px solid var(--line)}
+  .foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+  .foot-links{display:flex;gap:20px;flex-wrap:wrap}
+  .foot-links a{text-decoration:none;font-weight:700;font-size:.92rem}
+  .foot small{color:var(--ink-soft)}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <nav class="nav" aria-label="Main">
+      <a class="brand" href="#top">Belleville<small>Bakery — Burlington, VT</small></a>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+      <div class="nav-links" id="navLinks">
+        <a href="#bakes">Bakes</a>
+        <a href="#visit">Visit</a>
+        <a href="#story">Our story</a>
+        <a href="#preorder">Preorder</a>
+        <a href="#instagram">Instagram</a>
+        <a class="btn btn-butter nav-cta" href="https://www.instagram.com/bellevillevt" target="_blank" rel="noopener">Follow on Instagram <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+      </div>
+    </nav>
+  </div>
+</header>
+<main id="top">
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="kicker">French artisan bakery — Burlington, Vermont</p>
+        <h1>Paris baking,<br />on <em>College Street.</em></h1>
+        <p class="hero-sub">Belleville is a French artisan bakery in Burlington. Elevated comfort food — pain au chocolat, cookies, cakes and quiche — baked in small batches, Thursday to Sunday.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-butter" href="#bakes">See the bakes <i class="fa-solid fa-arrow-down"></i></a>
+          <a class="btn btn-outline-w" href="https://www.google.com/maps/search/?api=1&amp;query=217+College+Street%2C+Burlington%2C+VT" target="_blank" rel="noopener">Find us <i class="fa-solid fa-location-dot"></i></a>
+        </div>
+        <div class="hero-meta">
+          <div><b>Address</b>217 College Street, Burlington</div>
+          <div><b>Hours</b>Thu–Sun, 9am–2pm</div>
+          <div><b>Today</b><span id="todayStatus">Check Instagram for today</span></div>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&amp;w=1600&amp;auto=format&amp;fit=crop" alt="Fresh croissants on a bakery tray" />
+        <div class="open-pill" id="openPill"><span class="dot"></span><span id="openText">Open Thu–Sun, 9–2</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="strip" aria-hidden="true"><div class="strip-track">
+    <span>Pain au chocolat&nbsp;·&nbsp;</span><span>Orange Gingersnaps&nbsp;·&nbsp;</span><span>Lemon Pistachio Shortbread&nbsp;·&nbsp;</span><span>Carrot cake&nbsp;·&nbsp;</span><span>Quiche&nbsp;·&nbsp;</span>
+    <span>Pain au chocolat&nbsp;·&nbsp;</span><span>Orange Gingersnaps&nbsp;·&nbsp;</span><span>Lemon Pistachio Shortbread&nbsp;·&nbsp;</span><span>Carrot cake&nbsp;·&nbsp;</span><span>Quiche&nbsp;·&nbsp;</span>
+  </div></div>
+
+  <section id="bakes">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker">From the counter</p>
+        <h2>Bakes people come back for</h2>
+        <p>What is on the counter changes week to week. These are the bakes Belleville is known for on Instagram — check <a href="https://www.instagram.com/bellevillevt" target="_blank" rel="noopener">@bellevillevt</a> for the weekly menu before you come, because popular bakes sell out.</p>
+      </div>
+      <div class="bake-grid">
+        <article class="bake">
+          <img src="https://images.unsplash.com/photo-1483695028939-5bb13f8648b0?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Croissant and coffee" />
+          <div class="bake-body"><span class="bake-tag">French classic</span><h3>Pain au chocolat</h3><p>Laminated pastry with dark chocolate — the French classic at the heart of the counter.</p></div>
+        </article>
+        <article class="bake">
+          <img src="https://images.unsplash.com/photo-1509365465985-25d11c17e812?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Freshly baked cookies" />
+          <div class="bake-body"><span class="bake-tag">Cookies</span><h3>Orange Gingersnaps</h3><p>One of the bakery’s signature cookies, alongside Lemon Pistachio Shortbread.</p></div>
+        </article>
+        <article class="bake">
+          <img src="https://images.unsplash.com/photo-1550617931-e17a7b70dce2?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Pastry and coffee on a cafe table" />
+          <div class="bake-body"><span class="bake-tag">Cookies</span><h3>Lemon Pistachio Shortbread</h3><p>Buttery shortbread with lemon and pistachio — a regular on the weekly menu.</p></div>
+        </article>
+        <article class="bake">
+          <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="A layered cake on a plate" />
+          <div class="bake-body"><span class="bake-tag">Cakes</span><h3>Carrot cake</h3><p>Carrot cake from the counter, alongside cranberry sour cream coffee cake and blueberry cheesecake.</p></div>
+        </article>
+        <article class="bake">
+          <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Cheesecake with berries" />
+          <div class="bake-body"><span class="bake-tag">Cakes</span><h3>Blueberry cheesecake</h3><p>Blueberry cheesecake — one of the cakes regulars ask for by name.</p></div>
+        </article>
+        <article class="bake">
+          <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Fresh bread on a bakery shelf" />
+          <div class="bake-body"><span class="bake-tag">Savoury</span><h3>Quiche</h3><p>Quiche from the savoury side of the counter — elevated comfort food, baked in small batches.</p></div>
+        </article>
+      </div>
+      <div class="bake-note"><b>No full menu online yet?</b> That is the point of this page. The existing site lists only the address, phone and hours — the weekly menu, preorders and catering are only on Instagram and by email. Ask at <a href="mailto:bakery@bellevillevt.com">bakery@bellevillevt.com</a> or DM <a href="https://www.instagram.com/bellevillevt" target="_blank" rel="noopener">@bellevillevt</a> for this week’s menu.</div>
+    </div>
+  </section>
+
+  <section id="visit" style="padding-top:0">
+    <div class="wrap visit-grid">
+      <div>
+        <p class="kicker">Visit</p>
+        <h2 style="font-size:clamp(2.1rem,5vw,3.3rem);margin:12px 0 14px">217 College Street,<br />Burlington, VT</h2>
+        <p style="color:var(--ink-soft)">In downtown Burlington. Open Thursday to Sunday, 9am to 2pm.</p>
+        <ul class="visit-list">
+          <li><i class="fa-solid fa-location-dot"></i><span><b>217 College Street, Burlington, VT</b><br /><a href="https://www.google.com/maps/search/?api=1&amp;query=217+College+Street%2C+Burlington%2C+VT" target="_blank" rel="noopener">Open in Google Maps</a></span></li>
+          <li><i class="fa-solid fa-clock"></i><span><b>Thursday–Sunday, 9am–2pm</b><br />Closed Monday, Tuesday and Wednesday.</span></li>
+          <li><i class="fa-solid fa-envelope"></i><span><b>Preorders: bakery@bellevillevt.com</b><br />Weekly menu, preorders and catering are taken by email and DM — see below.</span></li>
+          <li><i class="fa-solid fa-camera"></i><span><b>Today’s counter is on Instagram</b><br /><a href="https://www.instagram.com/bellevillevt" target="_blank" rel="noopener">@bellevillevt</a> — the weekly menu is posted there first.</span></li>
+        </ul>
+      </div>
+      <div>
+        <div class="hours">
+          <div class="hours-head"><b>Opening hours</b><span>Thu–Sun</span></div>
+          <div class="hours-row" data-day="1"><span class="day">Monday</span><span>Closed</span></div>
+          <div class="hours-row" data-day="2"><span class="day">Tuesday</span><span>Closed</span></div>
+          <div class="hours-row" data-day="3"><span class="day">Wednesday</span><span>Closed</span></div>
+          <div class="hours-row" data-day="4"><span class="day">Thursday</span><span class="time">9am – 2pm</span></div>
+          <div class="hours-row" data-day="5"><span class="day">Friday</span><span class="time">9am – 2pm</span></div>
+          <div class="hours-row" data-day="6"><span class="day">Saturday</span><span class="time">9am – 2pm</span></div>
+          <div class="hours-row" data-day="0"><span class="day">Sunday</span><span class="time">9am – 2pm</span></div>
+          <div class="hours-foot">Hours from the bakery’s Instagram bio. If a holiday or a catering day changes them, Instagram is the first place it is posted.</div>
+        </div>
+        <div class="visit-photo" style="margin-top:18px"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&amp;w=1600&amp;auto=format&amp;fit=crop" alt="Inside a small cafe bakery" /></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="preorder" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker">Preorder &amp; catering</p>
+        <h2>Order ahead by email</h2>
+        <p>There is no online ordering page yet. The weekly menu is posted on Instagram, and preorders and catering are taken by email and DM.</p>
+      </div>
+      <div class="ig-grid">
+        <a class="ig-card" href="mailto:bakery@bellevillevt.com">
+          <i class="fa-solid fa-envelope"></i><h3>bakery@bellevillevt.com</h3><p>Preorders and catering enquiries. Tell the bakery what you would like and when you need it, and they will confirm what is available that week.</p><span>Email the bakery <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+        </a>
+        <a class="ig-card" href="https://www.instagram.com/bellevillevt" target="_blank" rel="noopener">
+          <i class="fa-brands fa-instagram"></i><h3>DM on Instagram</h3><p>Weekly menu, preorders and catering are also taken by DM at @bellevillevt. Check the weekly menu there first.</p><span>Message @bellevillevt <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+        </a>
+      </div>
+      <div class="bake-note" style="margin-top:18px"><b>Wedding cakes:</b> Belleville makes wedding cakes, including an “apple pie in a cake” — ask by email at <a href="mailto:bakery@bellevillevt.com">bakery@bellevillevt.com</a> for details and availability.</div>
+    </div>
+  </section>
+
+  <section id="story" class="story">
+    <div class="wrap story-grid">
+      <div class="story-photo"><img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&amp;w=1600&amp;auto=format&amp;fit=crop" alt="Baker working in a kitchen" /></div>
+      <div class="story-copy">
+        <p class="kicker">Our story</p>
+        <h2>Eleven years in Paris,<br />now on College Street</h2>
+        <p>Belleville is run by <strong>Shelley MacDonald</strong>, who spent 11 years in Paris, working and studying at Le Cordon Bleu.</p>
+        <p>She started Belleville with weekly pickups from her apartment, and now runs the bakery on College Street in Burlington — French technique, elevated comfort food, baked in small batches.</p>
+        <p>If you have only seen Belleville on Instagram, this page is the missing piece: the address, the hours, and how to preorder before the counter sells out.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="instagram">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker">Follow along</p>
+        <h2>Instagram is where it happens</h2>
+        <p>The weekly menu, preorders and catering are posted on Instagram first. Customers leave five-star Google reviews — the weekly menu is the place to start.</p>
+      </div>
+      <div class="ig-grid">
+        <a class="ig-card" href="https://www.instagram.com/bellevillevt" target="_blank" rel="noopener">
+          <i class="fa-brands fa-instagram"></i><h3>@bellevillevt</h3><p>The bakery. 217 College Street, Burlington, VT. Weekly menu, preorders and catering.</p><span>Follow the bakery <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+        </a>
+        <a class="ig-card" href="https://bellevillevt.com" target="_blank" rel="noopener">
+          <i class="fa-solid fa-globe"></i><h3>bellevillevt.com</h3><p>The bakery’s existing site — address, phone and hours only. This page adds the menu, preorders and story it does not yet show.</p><span>Visit the existing site <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap faq-list">
+      <div class="faq-item"><button class="faq-q" type="button">How do I preorder? <i class="fa-solid fa-plus"></i></button><div class="faq-a"><p>Email <a href="mailto:bakery@bellevillevt.com">bakery@bellevillevt.com</a> or DM <a href="https://www.instagram.com/bellevillevt" target="_blank" rel="noopener">@bellevillevt</a>. Check the weekly menu on Instagram first, then tell the bakery what you would like and when you need it.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button">What time should I come? <i class="fa-solid fa-plus"></i></button><div class="faq-a"><p>Belleville is open Thursday to Sunday, 9am to 2pm. Popular bakes sell out, so come early and check Instagram for that week’s menu.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button">Do you do catering and wedding cakes? <i class="fa-solid fa-plus"></i></button><div class="faq-a"><p>Yes — catering and wedding cakes are taken by email. Ask at <a href="mailto:bakery@bellevillevt.com">bakery@bellevillevt.com</a> for details and availability.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button">Where is Belleville? <i class="fa-solid fa-plus"></i></button><div class="faq-a"><p>217 College Street, Burlington, VT. Hours are Thursday to Sunday, 9am to 2pm. Closed Monday, Tuesday and Wednesday.</p></div></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap">
+      <h2>Come hungry.<br /><em>Come early.</em></h2>
+      <p>217 College Street, Burlington, VT — Thursday to Sunday, 9am to 2pm. Check Instagram for this week’s menu, and email to preorder before you set off.</p>
+      <div class="cta-row">
+        <a class="btn btn-butter" href="https://www.instagram.com/bellevillevt" target="_blank" rel="noopener">Check this week’s menu <i class="fa-brands fa-instagram"></i></a>
+        <a class="btn btn-outline-w" href="mailto:bakery@bellevillevt.com">Preorder by email</a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="wrap foot">
+    <div><a class="brand" href="#top" style="font-size:1.3rem">Belleville</a><br /><small>217 College Street, Burlington, VT · Thu–Sun, 9am–2pm</small></div>
+    <div class="foot-links">
+      <a href="https://www.instagram.com/bellevillevt" target="_blank" rel="noopener">Instagram</a>
+      <a href="mailto:bakery@bellevillevt.com">bakery@bellevillevt.com</a>
+      <a href="https://bellevillevt.com" target="_blank" rel="noopener">bellevillevt.com</a>
+    </div>
+    <small>Preview site — menu and hours from Belleville’s Instagram. No prices listed; ask by email.</small>
+  </div>
+</footer>
+<script>
+  var burger=document.getElementById('burger'), nav=document.getElementById('navLinks');
+  if(burger){burger.addEventListener('click',function(){var o=nav.classList.toggle('open');burger.setAttribute('aria-expanded',o?'true':'false');});}
+  document.querySelectorAll('.faq-q').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var item=btn.parentElement, ans=item.querySelector('.faq-a'), open=item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(i){i.classList.remove('open');i.querySelector('.faq-a').style.maxHeight='0';});
+      if(!open){item.classList.add('open');ans.style.maxHeight=ans.scrollHeight+'px';}
+    });
+  });
+  (function(){
+    var now=new Date(), day=now.getDay(), mins=now.getHours()*60+now.getMinutes();
+    var openDay=(day>=4||day===0), openTime=mins>=540&&mins<840, isOpen=openDay&&openTime;
+    var pill=document.getElementById('openPill'), txt=document.getElementById('openText'), today=document.getElementById('todayStatus');
+    document.querySelectorAll('.hours-row').forEach(function(r){if(parseInt(r.getAttribute('data-day'),10)===day){r.classList.add('today');}});
+    if(pill){pill.classList.toggle('closed',!isOpen); txt.textContent=isOpen?'Open now — until 2pm':(openDay?'Closed now — opens 9am':'Closed today — opens Thursday 9am');}
+    if(today){today.textContent=isOpen?'Open now, until 2pm':(openDay?'Closed now, opens 9am':'Closed today');}
+  })();
+</script>
+</body>
+</html>
